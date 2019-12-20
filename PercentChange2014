@@ -1,0 +1,32 @@
+Sub PercentChange2014()
+
+Dim i As Double
+Dim lastRow As Double
+
+
+Dim Opn As Double
+Dim Clse As Double
+Dim sumrw As Double
+
+
+sumrw = 2
+
+lastRow = Cells(Rows.Count, "A").End(xlUp).Row
+
+For i = 2 To lastRow
+    If Cells(i, 2).Value = "20140101" Then
+        Opn = Cells(i, 6).Value
+        Chg = Sheet1.Range("J" & sumrw).Value
+        Range("K" & sumrw).Value = Chg / Opn
+        Sheet1.Range("K" & sumrw).NumberFormat = "0.00%"
+        sumrw = sumrw + 1
+             
+            End If
+
+
+    Next i
+
+
+
+
+End Sub

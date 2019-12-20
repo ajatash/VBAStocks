@@ -1,0 +1,18 @@
+Sub ColorFormat()
+
+Dim yrChg As Double
+Dim i As Double
+Dim lastRow As Double
+ lastRow = Cells(Rows.Count, "K").End(xlUp).Row
+
+For i = 2 To lastRow
+    If Cells(i, 10).Value < 0 Then
+        Cells(i, 10).Interior.ColorIndex = 3
+    Else
+        Cells(i, 10).Interior.ColorIndex = 4
+    End If
+Next i
+
+
+End Sub
+

@@ -1,0 +1,29 @@
+Sub YearlyChange2014()
+
+Dim i As Double
+
+Dim lastRw As Double
+
+
+Dim Opn As Double
+Dim Clse As Double
+Dim sumrw As Double
+lastRw = Cells(Rows.Count, "A").End(xlUp).Row
+sumrw = 2
+
+
+For i = 2 To lastRw
+    If Cells(i, 2).Value = "20140101" Then
+        Opn = Cells(i, 6).Value
+        
+    ElseIf Cells(i, 2).Value = "20141230" Then
+        Clse = Cells(i, 6).Value
+        Range("J" & sumrw).Value = Clse - Opn
+        sumrw = sumrw + 1
+    
+    End If
+Next i
+
+    
+
+End Sub

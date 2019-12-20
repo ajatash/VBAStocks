@@ -1,0 +1,31 @@
+Sub StockList()
+
+
+For Each ws In Worksheets
+    Cells(1, 9).Value = "Ticker"
+    Cells(1, 10).Value = "Yearly Change"
+    Cells(1, 11).Value = "Percent Change"
+    Cells(1, 12).Value = "Total Stock Volume"
+
+
+    Dim i As Double
+    Dim ticker As String
+    Dim Summary_Table_Row As Double
+    Summary_Table_Row = 2
+    Dim lastRow As Double
+
+    lastRow = Cells(Rows.Count, "A").End(xlUp).Row
+    
+    For i = 2 To lastRow
+    ticker = Cells(i, 1).Value
+        If ticker <> Cells(i + 1, 1).Value Then
+            Sheets.Range("I" & Summary_Table_Row).Value = ticker
+            ticker = Cells(i, 1).Value
+            Summary_Table_Row = Summary_Table_Row + 1
+
+        End If
+    Next i
+Next ws
+
+
+End Sub

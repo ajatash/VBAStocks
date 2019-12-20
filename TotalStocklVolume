@@ -1,0 +1,29 @@
+Sub TotalVolume2()
+
+
+
+Dim tickerTotal As LongLong
+
+Dim i As Double
+Dim lastRow As Double
+Dim sumrw As Double
+
+tickerTotal = 0
+sumrw = 2
+
+lastRow = Cells(Rows.Count, "A").End(xlUp).Row
+    
+For i = 2 To lastRow
+        If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+            Range("L" & sumrw).Value = tickerTotal
+            sumrw = sumrw + 1
+            tickerTotal = 0
+        Else
+            tickerTotal = tickerTotal + Cells(i, 7).Value
+        End If
+        
+    
+    Next i
+
+   
+End Sub
